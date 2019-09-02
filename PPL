@@ -1,0 +1,576 @@
+#1
+def Balanced_Prime(Start_Limit,End_Limit,Balanced_Mode):
+    p,r,c=Start_Limit,End_Limit,Balanced_Mode
+    if p==1:
+        p=2
+    l=[]
+    for a in range(p,r+1):
+        k=0     
+        for i in range(2,int(a/2)+1): 
+            if(a%i==0):
+                k=k+1     
+                break
+        if(k<=0):         
+            l.append(a)
+    for i in range(1,int(len(l)-1),1):
+        m=l[i]
+        p=i-1
+        q=i+1
+        sum=0
+        z=c
+        while(p>=0 and z>0):
+            sum=sum+l[p]+l[q]
+            q+=1
+            p-=1
+            x=q-p-2
+            x=sum/x
+            z=z-1
+            if(x-int(x)==0):
+                if(x==m):
+                    print(m)
+                    break
+            if(q>len(l)-1):
+                break
+#2
+def circular(x):
+    u=list(map(int, str(x)))
+    f=0
+    for i in range(len(u)-1):
+        a=u[0]
+        u.remove(u[0])
+        u.append(a)
+        sum=0
+        k=0
+        j=len(u)-1
+        while(j>=0):
+            sum=sum+u[k]*(10**j)
+            j-=1
+            k+=1
+        a=sum
+        for i in range(2,int(a/2)+1): 
+            if(a%i==0):
+                f=1    
+                break
+        if f==1:
+            break
+    if f==0:
+        print(x)
+def Circular_Prime(Start_Limit,End_Limit):
+    p,r=Start_Limit,End_Limit
+    if p==1:
+        p=2
+    for a in range(p,r+1):
+        k=0     
+        for i in range(2,int(a/2)+1): 
+            if(a%i==0):
+                k=k+1     
+                break
+        if(k<=0):         
+            circular(a)
+#3
+def Cousin_Prime(Start_Limit,End_Limit):
+    p,r=Start_Limit,End_Limit
+    if p==1:
+        p=2
+    x=''
+    y=''
+    #this is exception so we have to take explicitly
+    if p<4 and r>6:
+        print('( 3 , 7 )')
+    for a in range(p,r+1): 
+        k=0     
+        for i in range(2,int(a/2)+1): 
+            if(a%i==0):
+                k=k+1     
+                break
+        if(k<=0):  
+            if(x==''):
+                x=int(a)
+                continue
+            if(y==''):
+                y=int(a)
+                if((y-x)==4):
+                    print('(',x,',',y,')')
+            else:
+                x=y
+                y=a
+                if((y-x)==4):
+                    print('(',x,',',y,')')
+#4
+def DoubleMersenne_Prime(Start_Limit,End_Limit):
+    p,r=Start_Limit,End_Limit
+    import  math
+    if p==1:
+        p=2
+    for a in range(p,r+1):
+        k=0     
+        for i in range(2,int(a/2)+1): 
+            if(a%i==0):
+                k=k+1     
+                break
+        if(k<=0):  
+            a+=1
+            x=math.log2(a)
+            z=x-int(x)
+            if z==0:
+                x+=1
+                x=math.log2(x)
+                z=x-int(x)
+                if z==0:
+                    print(a-1)
+#5
+def c_fact(n):
+    i=2
+    if n==0:
+        return 0
+    while int(n)>1:
+        n=n/i
+        i+=1
+    z=n-int(n)
+    if(z==0):
+        return 1
+    return 0
+def Factorial_Prime(Start_Limit,End_Limit):
+    p,r=Start_Limit,End_Limit
+    if p==1:
+        p=2
+    for a in range(p,r+1):
+        k=0     
+        for i in range(2,int(a/2)+1): 
+            if(a%i==0):
+                k=k+1     
+                break
+        if(k<=0):  
+            x=a-1
+            y=a+1
+            x=c_fact(x)
+            if x==1:
+                print (a)
+            else:
+                if 1==(c_fact(y)):
+                    print(a)
+#6
+def Good_Prime(Start_Limit,End_Limit):
+    s,r=Start_Limit,End_Limit
+    q=[]
+    b=0
+    p=2
+    for a in range(p,r+1):
+        k=0     
+        for i in range(2,int(a/2)+1): 
+            if(a%i==0):
+                k=k+1     
+                break
+        if(k<=0):  
+            q.append(a)
+            b=b+1
+    a=r+1
+    c=b
+    while(b>0):
+        k=0     
+        for i in range(2,int(a/2)+1): 
+            if(a%i==0):
+                k=k+1     
+                break
+        if(k<=0):  
+            q.append(a)
+            b=b-1
+        a=a+1
+    while(c>0):
+        if b>0:
+            x=b
+            f=0
+            while(x>0):
+                if(q[b]**2)<(q[b-x]*q[b+x]):
+                    f=1
+                x=x-1
+            if f==0:
+                if q[b]>s:
+                    print(q[b])
+        b=b+1
+        c=c-1
+#7
+def Mersenne_Prime(Start_Limit,End_Limit):
+    p,r=Start_Limit,End_Limit
+    import  math
+    if p==1:
+        p=2
+    for a in range(p,r+1):
+        k=0     
+        for i in range(2,int(a/2)+1): 
+            if(a%i==0):
+                k=k+1     
+                break
+        if(k<=0):  
+            a+=1
+            x=math.log2(a)
+            x=x-int(x)
+            if x==0:
+                print(a-1)
+#8
+def Palindromic_Prime(Start_Limit,End_Limit):
+    x,y=Start_Limit,End_Limit
+    if x==1:
+        x=2
+    for a in range(x,y+1):
+        k=0     
+        for i in range(2,int(a/2)+1): 
+            if(a%i==0):
+                k=k+1     
+                break
+        if(k<=0):         
+            sum=0
+            num=a
+            q=0
+            p=[]
+            while(num>0):
+                rem=num%10
+                p.append(rem)
+                num=int(num/10)
+                q+=1
+                m=0
+                while(q>0):
+                    sum=sum+p[m]*(10**q)
+                    m+=1
+                    q-=1
+                    sum/=10
+                    if(a==sum):
+                        print(a)
+#9
+def permutable(n):
+    u=list(map(int, str(n)))
+    f=0
+    import itertools
+    p1=list(itertools.permutations(u))
+    for i in range(1,len(p1)):
+        j=len(p1[0])-1
+        sum=0
+        k=0
+        while(j>=0):
+            sum=sum+p1[i][k]*(10**j)
+            j-=1
+            k+=1
+        a=sum
+        for i in range(2,int(a/2)+1): 
+            if(a%i==0):
+                f=1    
+                break
+        if f==1:
+            break
+    if f==0:
+        print(n)
+def Permutable_Prime(Start_Limit,End_Limit):
+    p,r=Start_Limit,End_Limit
+    if p==1:
+        p=2
+    for a in range(p,r+1):
+        k=0     
+        for i in range(2,int(a/2)+1): 
+            if(a%i==0):
+                k=k+1     
+                break
+        if(k<=0):         
+            permutable(a)
+#10
+def check_Primorial(a):
+    if(a<8):
+        return 1
+    p=a/2
+    
+    if(p!=int(p)):
+        return 0
+    while(p>0):
+        for i in range(3,int(a/2)+1):
+            f=0
+            for j in range(2,i):
+                if(i%j==0):
+                    f=1
+                    break
+            if(f==0):
+                
+                p=p/i
+                if(p!=int(p)):
+                    p=0
+                    break
+                if(p==1):
+                    return 1
+    return 0            
+def Primorial_Prime(Start_Limit,End_Limit):
+    p,q=Start_Limit,End_Limit
+    if(p==1):
+        p=2
+    for i in range(p,q):
+        if(check_Prime(i)):
+            x=0
+            x=check_Primorial(i-1)
+            if x==1:
+                print(i)
+            else:
+               x=check_Primorial(i+1)
+               if x==1:
+                   print(i)
+#11
+#p=int(input("Base"))
+#r=int(input("How many Pseudoprime "))
+def isComposite(x):
+    f=0
+    for i in range(2,(x//2)+1):
+        if x%i==0:
+            f=1
+            break
+    if f==1:
+        return True
+    else:
+        return False                 
+def Femat_Psedo_Prime(Start_Limit,End_Limit):
+    p,r=Start_Limit,End_Limit
+    if p==1:
+        p=2
+    x=2
+    while(r>0):
+        k=0     
+        while(k==0):
+            a=(pow(p,(x-1))-1)%x
+            if a==0:
+                if(isComposite(x)):
+                    print(x)
+                    k=1
+                x=x+1
+            
+            else:
+                x=x+1
+        r=r-1
+#12
+def Pythagorean_Prime(Start_Limit,End_Limit):
+    p,r=Start_Limit,End_Limit
+    if p==1:
+        p=2
+    for a in range(p,r+1):
+        k=0     
+        for i in range(2,int(a/2)+1): 
+            if(a%i==0):
+                k=k+1     
+                break
+        if(k<=0):         
+            p=a
+            p-=1
+            p/=4
+            if(p-int(p)==0):
+                print(a)
+#13
+def Reversible_Prime(Start_Limit,End_Limit):
+    x=Start_Limit
+    y=End_Limit
+    if x<12:
+        x=12
+    for a in range(x,y+1):
+        k=0  
+        sum=0
+        for i in range(2,int(a/2)+1): 
+            if(a%i==0):
+                k=k+1     
+                break
+        if(k<=0):         
+            
+            num=a
+            q=0
+            p=[]
+            while(num>0):
+                rem=num%10
+                p.append(rem)
+                num=int(num/10)
+                q+=1
+                m=0
+            while(q>0):
+                sum=sum+p[m]*(10**q)
+                m+=1
+                q-=1
+            sum=int(sum/10)
+            k=0     
+        for i in range(2,int(sum/2)+1): 
+            if(sum%i==0):
+                k=k+1     
+                break
+        if(k<=0):
+            print(a)
+#14
+def Semi_Prime(p,r):
+    for a in range(p,r+1):
+        j=a
+        n=a
+        x=[]
+        while(n!=1):
+            for i in range(2,int(n+1)):
+                a=n/i
+                p=a-int(a)
+                if p!=0 :
+                    continue
+                else:
+                    x.append(i)
+                    n=a
+                    break
+        if (len(x)==2):
+            print(j)
+#15
+def prime(n):    
+    for i in range(2,int(n/2)+1): 
+        if(n%i==0):
+            return 0
+    return 1
+def SophieGermain_Prime(p,r):
+    if p==1:
+        p=2
+    for a in range(p,r+1):
+        k=0     
+        for i in range(2,int(a/2)+1): 
+            if(a%i==0):
+                k=k+1     
+                break
+        if(k<=0):  
+            x=prime(2*a+1)
+            if(x==1):
+                print(a)
+#16
+def Twin_Prime(p,r):
+    if p==1:
+        p=2
+        x=''
+        y=''
+    for a in range(p,r+1):
+        k=0     
+        for i in range(2,int(a/2)+1): 
+            if(a%i==0):
+                k=k+1     
+                break
+        if(k<=0):  
+            if(x==''):
+                x=int(a)
+                continue
+            if(y==''):
+                y=int(a)
+                if((y-x)==2):
+                    print('(',x,',',y,')')
+            else:
+                x=y
+                y=a
+                if((y-x)==2):
+                    print('(',x,',',y,')')
+#17
+def Wagstaff_Prime(p,r):
+    import math
+    if p==1:
+        p=2
+    for a in range(p,r+1):
+        k=0     
+        for i in range(2,int(a/2)+1): 
+            if(a%i==0):
+                k=k+1     
+                break
+        if(k<=0): 
+            x=a        
+            a*=3
+            a-=1
+            a=math.log2(a)
+            if(a-int(a)==0):
+                print(x)
+#18
+def Wieferich_Prime(p,r):
+    from fractions import Fraction
+    if p==1:
+        p=2
+    for a in range(p,r+1):
+        k=0     
+        for i in range(2,int(a/2)+1): 
+            if(a%i==0):
+                k=k+1     
+                break
+        if(k<=0):  
+            x=a*a
+            y=2**(a-1)-1
+            z=Fraction(y,x)
+            z=(z)-int(z)
+            if(z==0.0):
+                print(a)    
+#19
+def Wilson_Prime(p,r):
+    from fractions import Fraction
+    import math
+    if p==1:
+        p=2
+    for a in range(p,r+1):
+        k=0     
+        for i in range(2,int(a/2)+1): 
+            if(a%i==0):
+                k=k+1     
+                break
+        if(k<=0):  
+            x=a*a
+            y=math.factorial(a-1)+1
+            z=Fraction(y,x)
+            z=(z)-int(z)
+            if(z==0.0):
+                print(a)
+#20
+def check_Prime(a):
+    k=0
+    if a==1:
+        return 0
+    for i in range(2,int(a/2)+1): 
+        if(a%i==0):
+            k=k+1     
+            break
+    if(k<=0):         
+        return 1
+    else:
+        return 0
+def check_Not_Prime(a):
+    k=0
+    if a==1:
+        return 1
+    for i in range(2,int(a/2)+1): 
+        if(a%i==0):
+            k=k+1     
+            break
+    if(k<=0):         
+        return 0
+    else:
+        return 1
+def left_Tru(t,r):
+    for a in range(t,r+1):
+        f=0
+        w=0
+        z=a
+        if(check_Prime(a)):
+            w=1
+            a=str(a)
+            p=list(a)
+            for i in range(1,len(p)):
+                a=len(p)-i-1
+                sum=0
+                for j in range(i,len(p)):
+                    sum=sum+int(p[j])*pow(10,a)
+                    a=a-1
+                    if(check_Not_Prime(sum)):
+                        f=1
+        if(f==0 and w==1):
+            print(z)
+def right_Tru(p,r):
+    for a in range(p,r+1):
+        x=a
+        f=0
+        while(a>0):
+            if(check_Not_Prime(a)):
+                f=1
+                break
+            a=int(a/10)
+        if f==0:
+            print(x)
+def Truncatable_Prime(Start_Limit,End_Limit,Truncatable_side):
+    p,r=Start_Limit,End_Limit
+    if(Truncatable_side=='l'):
+        left_Tru(p,r)
+    else:
+        if(Truncatable_side=='r'):
+            right_Tru(p,r)
+        else:
+            print("write Truncatable_side= l for left or r for right:")
