@@ -1,5 +1,6 @@
 #1
 def Balanced_Prime(Start_Limit,End_Limit,Balanced_Mode):
+    l1=[]
     p,r,c=Start_Limit,End_Limit,Balanced_Mode
     if p==1:
         p=2
@@ -27,10 +28,11 @@ def Balanced_Prime(Start_Limit,End_Limit,Balanced_Mode):
             z=z-1
             if(x-int(x)==0):
                 if(x==m):
-                    print(m)
+                    l1.append(m)
                     break
             if(q>len(l)-1):
                 break
+    return l1
 #2
 def circular(x):
     u=list(map(int, str(x)))
@@ -54,8 +56,9 @@ def circular(x):
         if f==1:
             break
     if f==0:
-        print(x)
+        return(x)
 def Circular_Prime(Start_Limit,End_Limit):
+    l1=[]
     p,r=Start_Limit,End_Limit
     if p==1:
         p=2
@@ -66,19 +69,27 @@ def Circular_Prime(Start_Limit,End_Limit):
                 k=k+1     
                 break
         if(k<=0):         
-            circular(a)
+            c1=circular(a)
+            l1.append(c1)
+    l1=list(filter(None,l1))
+    return(l1)
 #3
 def Cousin_Prime(Start_Limit,End_Limit):
+    l1=[]
     p,r=Start_Limit,End_Limit
     if p==1:
         p=2
     x=''
     y=''
-    #this is exception so we have to take explicitly
+    #this is exception so we have to print explicitly
+    q=[]
     if p<4 and r>6:
-        print('( 3 , 7 )')
+        q.append(3)
+        q.append(7)
+        l1.append(q)
     for a in range(p,r+1): 
         k=0     
+        q=[]
         for i in range(2,int(a/2)+1): 
             if(a%i==0):
                 k=k+1     
@@ -90,14 +101,20 @@ def Cousin_Prime(Start_Limit,End_Limit):
             if(y==''):
                 y=int(a)
                 if((y-x)==4):
-                    print('(',x,',',y,')')
+                    q.append(x)
+                    q.append(y)
+                    l1.append(q)
             else:
                 x=y
                 y=a
                 if((y-x)==4):
-                    print('(',x,',',y,')')
+                    q.append(x)
+                    q.append(y)
+                    l1.append(q)
+    return(l1)
 #4
 def DoubleMersenne_Prime(Start_Limit,End_Limit):
+    l1=[]
     p,r=Start_Limit,End_Limit
     import  math
     if p==1:
@@ -117,7 +134,8 @@ def DoubleMersenne_Prime(Start_Limit,End_Limit):
                 x=math.log2(x)
                 z=x-int(x)
                 if z==0:
-                    print(a-1)
+                    l1.append(a-1)
+    return(l1)
 #5
 def c_fact(n):
     i=2
@@ -131,6 +149,7 @@ def c_fact(n):
         return 1
     return 0
 def Factorial_Prime(Start_Limit,End_Limit):
+    l1=[]
     p,r=Start_Limit,End_Limit
     if p==1:
         p=2
@@ -145,12 +164,14 @@ def Factorial_Prime(Start_Limit,End_Limit):
             y=a+1
             x=c_fact(x)
             if x==1:
-                print (a)
+                l1.append(a)
             else:
                 if 1==(c_fact(y)):
-                    print(a)
+                    l1.append(a)
+    return(l1)
 #6
 def Good_Prime(Start_Limit,End_Limit):
+    l1=[]
     s,r=Start_Limit,End_Limit
     q=[]
     b=0
@@ -186,11 +207,13 @@ def Good_Prime(Start_Limit,End_Limit):
                 x=x-1
             if f==0:
                 if q[b]>s:
-                    print(q[b])
+                    l1.append(q[b])
         b=b+1
         c=c-1
+    return(l1)
 #7
 def Mersenne_Prime(Start_Limit,End_Limit):
+    l1=[]
     p,r=Start_Limit,End_Limit
     import  math
     if p==1:
@@ -206,9 +229,11 @@ def Mersenne_Prime(Start_Limit,End_Limit):
             x=math.log2(a)
             x=x-int(x)
             if x==0:
-                print(a-1)
+                l1.append(a-1)
+    return(l1)
 #8
 def Palindromic_Prime(Start_Limit,End_Limit):
+    l1=[]
     x,y=Start_Limit,End_Limit
     if x==1:
         x=2
@@ -235,8 +260,9 @@ def Palindromic_Prime(Start_Limit,End_Limit):
                     q-=1
                     sum/=10
                     if(a==sum):
-                        print(a)
-#9
+                        l1.append(a)
+    return(l1)
+#9,,check!!!!!!!
 def permutable(n):
     u=list(map(int, str(n)))
     f=0
@@ -258,8 +284,9 @@ def permutable(n):
         if f==1:
             break
     if f==0:
-        print(n)
+        return(n)
 def Permutable_Prime(Start_Limit,End_Limit):
+    l1=[]
     p,r=Start_Limit,End_Limit
     if p==1:
         p=2
@@ -270,7 +297,8 @@ def Permutable_Prime(Start_Limit,End_Limit):
                 k=k+1     
                 break
         if(k<=0):         
-            permutable(a)
+            l1.append(permutable(a))
+    return(l1)
 #10
 def check_Primorial(a):
     if(a<8):
@@ -296,6 +324,7 @@ def check_Primorial(a):
                     return 1
     return 0            
 def Primorial_Prime(Start_Limit,End_Limit):
+    l1=[]
     p,q=Start_Limit,End_Limit
     if(p==1):
         p=2
@@ -304,11 +333,12 @@ def Primorial_Prime(Start_Limit,End_Limit):
             x=0
             x=check_Primorial(i-1)
             if x==1:
-                print(i)
+                l1.append(i)
             else:
                x=check_Primorial(i+1)
                if x==1:
-                   print(i)
+                   l1.append(i)
+    return(l1)
 #11
 #p=int(input("Base"))
 #r=int(input("How many Pseudoprime "))
@@ -322,7 +352,8 @@ def isComposite(x):
         return True
     else:
         return False                 
-def Femat_Psedo_Prime(Start_Limit,End_Limit):
+def Fermat_Psedo_Prime(Start_Limit,End_Limit):
+    l1=[]
     p,r=Start_Limit,End_Limit
     if p==1:
         p=2
@@ -333,15 +364,17 @@ def Femat_Psedo_Prime(Start_Limit,End_Limit):
             a=(pow(p,(x-1))-1)%x
             if a==0:
                 if(isComposite(x)):
-                    print(x)
+                    l1.append(x)
                     k=1
                 x=x+1
             
             else:
                 x=x+1
         r=r-1
+    return(l1)
 #12
 def Pythagorean_Prime(Start_Limit,End_Limit):
+    l1=[]
     p,r=Start_Limit,End_Limit
     if p==1:
         p=2
@@ -356,9 +389,11 @@ def Pythagorean_Prime(Start_Limit,End_Limit):
             p-=1
             p/=4
             if(p-int(p)==0):
-                print(a)
+                l1.append(a)
+    return(l1)
 #13
 def Reversible_Prime(Start_Limit,End_Limit):
+    l1=[]
     x=Start_Limit
     y=End_Limit
     if x<12:
@@ -392,9 +427,12 @@ def Reversible_Prime(Start_Limit,End_Limit):
                 k=k+1     
                 break
         if(k<=0):
-            print(a)
+            l1.append(a)
+    return(l1)
 #14
-def Semi_Prime(p,r):
+def Semi_Prime(Start_Limit,End_Limit):
+    p,r=Start_Limit,End_Limit
+    l1=[]
     for a in range(p,r+1):
         j=a
         n=a
@@ -410,14 +448,17 @@ def Semi_Prime(p,r):
                     n=a
                     break
         if (len(x)==2):
-            print(j)
+            l1.append(j)
+    return(l1)
 #15
 def prime(n):    
     for i in range(2,int(n/2)+1): 
         if(n%i==0):
             return 0
     return 1
-def SophieGermain_Prime(p,r):
+def SophieGermain_Prime(Start_Limit,End_Limit):
+    l1=[]
+    p,r=Start_Limit,End_Limit
     if p==1:
         p=2
     for a in range(p,r+1):
@@ -429,9 +470,13 @@ def SophieGermain_Prime(p,r):
         if(k<=0):  
             x=prime(2*a+1)
             if(x==1):
-                print(a)
+                l1.append(a)
+    return(l1)
 #16
-def Twin_Prime(p,r):
+def Twin_Prime(Start_Limit,End_Limit):
+    p,r=Start_Limit,End_Limit
+    l1=[]
+    q=[]
     if p==1:
         p=2
         x=''
@@ -449,14 +494,20 @@ def Twin_Prime(p,r):
             if(y==''):
                 y=int(a)
                 if((y-x)==2):
-                    print('(',x,',',y,')')
+                    q.append(x)
+                    q.append(y)
+                    l1.append(q)
             else:
                 x=y
                 y=a
                 if((y-x)==2):
-                    print('(',x,',',y,')')
+                    q.append(x)
+                    q.append(y)
+                    l1.append(q)
 #17
-def Wagstaff_Prime(p,r):
+def Wagstaff_Prime(Start_Limit,End_Limit):
+    l1=[]
+    p,r=Start_Limit,End_Limit
     import math
     if p==1:
         p=2
@@ -472,9 +523,12 @@ def Wagstaff_Prime(p,r):
             a-=1
             a=math.log2(a)
             if(a-int(a)==0):
-                print(x)
+                l1.append(x)
+    return(l1)
 #18
-def Wieferich_Prime(p,r):
+def Wieferich_Prime(Start_Limit,End_Limit):
+    p,r=Start_Limit,End_Limit
+    l1=[]
     from fractions import Fraction
     if p==1:
         p=2
@@ -490,9 +544,12 @@ def Wieferich_Prime(p,r):
             z=Fraction(y,x)
             z=(z)-int(z)
             if(z==0.0):
-                print(a)    
+                l1.append(a)
+    return(l1)
 #19
-def Wilson_Prime(p,r):
+def Wilson_Prime(Start_Limit,End_Limit):
+    p,r=Start_Limit,End_Limit
+    l1=[]
     from fractions import Fraction
     import math
     if p==1:
@@ -509,7 +566,8 @@ def Wilson_Prime(p,r):
             z=Fraction(y,x)
             z=(z)-int(z)
             if(z==0.0):
-                print(a)
+                l1.append(a)
+    return(l1)
 #20
 def check_Prime(a):
     k=0
@@ -535,7 +593,9 @@ def check_Not_Prime(a):
         return 0
     else:
         return 1
-def left_Tru(t,r):
+def left_Tru(Start_Limit,End_Limit):
+    t,r=Start_Limit,End_Limit
+    q=[]
     for a in range(t,r+1):
         f=0
         w=0
@@ -553,8 +613,11 @@ def left_Tru(t,r):
                     if(check_Not_Prime(sum)):
                         f=1
         if(f==0 and w==1):
-            print(z)
-def right_Tru(p,r):
+            q.append(z)
+    return(q)
+def right_Tru(Start_Limit,End_Limit):
+    p,r=Start_Limit,End_Limit
+    q=[]
     for a in range(p,r+1):
         x=a
         f=0
@@ -564,13 +627,25 @@ def right_Tru(p,r):
                 break
             a=int(a/10)
         if f==0:
-            print(x)
-def Truncatable_Prime(Start_Limit,End_Limit,Truncatable_side):
+            q.append(x)
+    return(q)
+def Truncatable_Prime(Start_Limit,End_Limit):
     p,r=Start_Limit,End_Limit
-    if(Truncatable_side=='l'):
-        left_Tru(p,r)
-    else:
-        if(Truncatable_side=='r'):
-            right_Tru(p,r)
-        else:
-            print("write Truncatable_side= l for left or r for right:")
+    l11=left_Tru(p,r)
+    l12=right_Tru(p,r)
+    l1=list(set(l11) | set(l12))
+    l1.sort()
+    return(l1)
+#21
+#p=int(input("enter A :"))
+#q=int(input("enter B :"))
+#print("gausian number is of form A+iB")
+def Gausian(Start_Limit,End_Limit):
+    p,q=Start_Limit,End_Limit
+    x=p**2+q**2
+    f=1
+    for i in range(2,(x//2)+1):
+        if x%i==0:
+            f=0
+    if f==1:
+        print(p,"+i",q," is gausian prime",sep="")
