@@ -355,6 +355,9 @@ def isComposite(x):
 def Fermat_Psedo_Prime(Start_Limit,End_Limit):
     l1=[]
     p,r=Start_Limit,End_Limit
+    if r<2:
+        print("enter balanced mode greater than one")
+        return l1
     if p==1:
         p=2
     x=2
@@ -581,6 +584,7 @@ def check_Prime(a):
         return 1
     else:
         return 0
+#21
 def check_Not_Prime(a):
     k=0
     if a==1:
@@ -593,6 +597,7 @@ def check_Not_Prime(a):
         return 0
     else:
         return 1
+#22
 def left_Tru(Start_Limit,End_Limit):
     t,r=Start_Limit,End_Limit
     q=[]
@@ -615,6 +620,7 @@ def left_Tru(Start_Limit,End_Limit):
         if(f==0 and w==1):
             q.append(z)
     return(q)
+#23
 def right_Tru(Start_Limit,End_Limit):
     p,r=Start_Limit,End_Limit
     q=[]
@@ -629,6 +635,7 @@ def right_Tru(Start_Limit,End_Limit):
         if f==0:
             q.append(x)
     return(q)
+#24
 def Truncatable_Prime(Start_Limit,End_Limit):
     p,r=Start_Limit,End_Limit
     l11=left_Tru(p,r)
@@ -636,7 +643,7 @@ def Truncatable_Prime(Start_Limit,End_Limit):
     l1=list(set(l11) | set(l12))
     l1.sort()
     return(l1)
-#21
+#25
 #p=int(input("enter A :"))
 #q=int(input("enter B :"))
 #print("gausian number is of form A+iB")
@@ -649,3 +656,56 @@ def Gausian(Start_Limit,End_Limit):
             f=0
     if f==1:
         print(p,"+i",q," is gausian prime",sep="")
+#26
+def Random_Prime(Type_Prime,Digits):
+    import RandomFun as r
+    x=r.gen_Random(Type_Prime,Digits)
+    print(x)
+#Factorizations
+#27
+def traditional_Factorization(n):
+    l1=[]
+    from decimal import Decimal
+    for i in range(2,int(n+1)):
+        a=Decimal(n)/i
+        p=a-int(a)
+        if p!=0 :
+            continue
+        else:
+            l1.append(int(a))
+            break
+    return l1
+    
+#28
+def fermat_Factorization(n):
+    import gmpy2
+    for x in range(int(gmpy2.sqrt(n))+1,n,1):
+        y=x*x-n
+        if(gmpy2.is_square(y)):
+            p=gmpy2.sqrt(y)
+            s=x+p
+            t=x-p
+            return(int(s),int(t))
+#29
+def gcd(x, y): 
+   while(y): 
+       x, y = y, x % y 
+   return x 
+def pollard_Rho_Factorization(n):
+    import random
+    x=random.randint(0,100)
+    y=x
+    c=random.randint(0,100)
+    x=(x*x+c)%n
+    p=y*y+c
+    y=(p*p+c)%n
+    x1=gcd(abs(x-y),n)
+    while(x1==1):
+        x=(x*x+c)%n
+        p=y*y+c
+        y=(p*p+c)%n
+        x1=gcd(abs(x-y),n)
+    
+    if(x1==n):
+        pollard_Rho_Factorization(int(x1))
+    return(x1)
