@@ -1,4 +1,5 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>README.md</title><style></style></head><body id="preview">
+<!DOCTYPE html><html><head><meta charset="utf-8">
+ <title>README.md</title></head><body id="preview">
 <h1 class="code-line" data-line-start=0 data-line-end=1 ><a id="Python_Prime_Library_0"></a>Python Prime Library</h1>
 <p class="has-line-data" data-line-start="2" data-line-end="3">This official documentation of python prime library.</p>
 <ul>
