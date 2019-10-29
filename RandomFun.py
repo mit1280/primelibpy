@@ -1,6 +1,7 @@
 import Prime as p
 import random
 def gen_Random(name,n,mode):
+    name="get"+name
     if name=="getBalancedPrime":
         x=[]
         while(len(x)==0):
@@ -16,4 +17,3 @@ def gen_Random(name,n,mode):
         x = getattr(p,name)(start,end)
     x=list(filter(None, x))
     return(random.choice(x))
-
