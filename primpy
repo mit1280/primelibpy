@@ -349,28 +349,21 @@ def isComposite(x):
         return True
     else:
         return False                 
-def getFermatPseudoPrime(baseNumber,numOfPsedoPrime):
+def getFermatPseudoPrime(startLimit,endLimit,baseNumber):
     l1=[]
-    p,r=baseNumber,numOfPsedoPrime
-    if r<2:
+    p=baseNumber
+    q,r=startLimit,endLimit
+    if p<2:
         print("enter balanced mode greater than one")
         return l1
-    if p==1:
-        p=2
-    x=2
-    while(r>0):
-        k=0     
-        while(k==0):
-            a=(pow(p,(x-1))-1)%x
-            if a==0:
-                if(isComposite(x)):
-                    l1.append(x)
-                    k=1
-                x=x+1
-            
-            else:
-                x=x+1
-        r=r-1
+    if q==1:
+        q=2
+    for i in range(q,r):
+        x=i
+        a=(pow(p,(x-1))-1)%x
+        if a==0:
+            if(isComposite(x)):
+                l1.append(x)
     return(l1)
 #12
 def getPythagoreanPrime(startLimit,endLimit):
@@ -635,7 +628,7 @@ def getRightTruncatablePrime(startLimit,endLimit):
             q.append(x)
     return(q)
 #24
-def getTruncatable_Prime(startLimit,endLimit):
+def getTruncatablePrime(startLimit,endLimit):
     p,r=startLimit,endLimit
     l11=getLeftTruncatablePrime(p,r)
     l12=getRightTruncatablePrime(p,r)
