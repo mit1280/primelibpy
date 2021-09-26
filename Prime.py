@@ -295,7 +295,8 @@ def getPermutablePrime(startLimit,endLimit):
                 break
         if(k<=0):         
             l1.append(permutable(a))
-    return(l1)
+    
+    return([i for i in l1 if i])
 #10
 def check_Primorial(a):
     if(a<8):
@@ -652,7 +653,7 @@ def checkGaussianPrime(realPart,imaginaryPart):
         print("number is not gaussian prime")
 #26
 def getRandomPrime(primeType,totalDigits,mode=0):
-    import RandomFun as r
+    from primelibpy import RandomFun as r
     x=r.gen_Random(primeType,totalDigits,mode)
     if type(x)==list:
         return(x)
@@ -660,26 +661,25 @@ def getRandomPrime(primeType,totalDigits,mode=0):
         return(int(x))
 #Factorizations
 #27
-def getFactorTraditional(compositeNumber):
-    n=compositeNumber
+def getFactorTraditional(semiPrime):
     l1=[]
     from decimal import Decimal
-    for i in range(2,int(n+1)):
-        a=Decimal(n)/i
+    for i in range(2,int(semiPrime+1)):
+        a=Decimal(semiPrime)/i
         p=a-int(a)
         if p!=0 :
             continue
         else:
+            l1.append(i)
             l1.append(int(a))
             break
     return l1
     
 #28
-def getFactorFermatTheorem(compositeNumber):
-    n=compositeNumber
+def getFactorFermatTheorem(semiPrime):
     import gmpy2
-    for x in range(int(gmpy2.sqrt(n))+1,n,1):
-        y=x*x-n
+    for x in range(int(gmpy2.sqrt(semiPrime))+1,semiPrime,1):
+        y=x*x-semiPrime
         if(gmpy2.is_square(y)):
             p=gmpy2.sqrt(y)
             s=x+p
@@ -690,22 +690,34 @@ def gcd(x, y):
    while(y): 
        x, y = y, x % y 
    return x 
-def getFactorPollardRho(compositeNumber):
-    n=compositeNumber
+def getFactorPollardRho(semiPrime):
     import random
     x=random.randint(0,100)
     y=x
     c=random.randint(0,100)
-    x=(x*x+c)%n
+    x=(x*x+c)%semiPrime
     p=y*y+c
-    y=(p*p+c)%n
-    x1=gcd(abs(x-y),n)
+    y=(p*p+c)%semiPrime
+    x1=gcd(abs(x-y),semiPrime)
     while(x1==1):
-        x=(x*x+c)%n
+        x=(x*x+c)%semiPrime
         p=y*y+c
-        y=(p*p+c)%n
-        x1=gcd(abs(x-y),n)
+        y=(p*p+c)%semiPrime
+        x1=gcd(abs(x-y),semiPrime)
     
-    if(x1==n):
+    if(x1==semiPrime):
         getFactorPollardRho(int(x1))
     return(x1)
+#All 
+def getAllFactors(compositeNumber):
+    n=compositeNumber
+    l1=[1]
+    from decimal import Decimal
+    for i in range(2,int(n+1)):
+        a=Decimal(n)/i
+        p=a-int(a)
+        if p!=0 :
+            continue
+        else:
+            l1.append(i)
+    return l1

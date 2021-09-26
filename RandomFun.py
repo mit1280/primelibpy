@@ -1,4 +1,4 @@
-import Prime as p
+from primelibpy import Prime as p
 import random
 def gen_Random(name,n,mode):
     name="get"+name
