@@ -1,3 +1,4 @@
+
 <!DOCTYPE html><html><head><meta charset="utf-8">
 </head><body id="preview">
 <h1 class="code-line" data-line-start=0 data-line-end=1 ><a id="Python_Prime_Library_0"></a>Python Prime Library</h1>
@@ -8,6 +9,7 @@
 <li class="has-line-data" data-line-start="6" data-line-end="8">Factorization of given number</li>
 </ul>
 <h1 class="code-line" data-line-start=8 data-line-end=9 ><a id="Installation_8"></a>Installation!</h1>
+<pre> Use<b> pip3</b> if you are using python version 3+ else follow same steps as mentioned below</pre>
 <ol>
 <li class="has-line-data" data-line-start="9" data-line-end="10">If you don’t have pip then follow below procedure else go to step 2.</li>
 </ol>
@@ -68,7 +70,11 @@ $ sudo zypper install python3-pip python3-setu ptools python3-wheel
 <ul>
 <li class="has-line-data" data-line-start="56" data-line-end="57">This package is require to install primelibpy library</li>
 <li class="has-line-data" data-line-start="57" data-line-end="61">Run following command<pre><code class="has-line-data" data-line-start="59" data-line-end="61" class="language-sh">$ pip install gmpy2==<span class="hljs-number">2.1</span>.<span class="hljs-number">0</span>a2
-</code></pre>
+</code>
+<pre>OR if you are using Python 3</pre>
+<code class="has-line-data" data-line-start="59" data-line-end="61" class="language-sh">$ pip3 install gmpy2==<span class="hljs-number">2.1</span>.<span class="hljs-number">0</span>a2
+</code>
+</pre>
 </li>
 </ul>
 </li>
@@ -211,22 +217,31 @@ Return Type: <code>None</code></p>
 <h3 class="code-line" data-line-start=167 data-line-end=168 ><a id="Factorization_167"></a>Factorization</h3>
 </li>
 </ul>
+<p class="has-line-data" data-line-start="70" data-line-end="71">This Section is realted to  Number factorization. Use Semi-Prime where it is indicated. </p>
 <h4 class="code-line" data-line-start=169 data-line-end=170 ><a id="Traditional_Way_for_Factorization_169"></a>Traditional Way for Factorization</h4>
 <blockquote>
-<p class="has-line-data" data-line-start="170" data-line-end="172">Syntex: <code>getFactorTraditional(compositeNumber)</code><br>
-Return Type: <code>list</code></p>
+<p class="has-line-data" data-line-start="170" data-line-end="172">Syntex: <code>getFactorTraditional(semiPrimeNumber)</code><br>
+Return Type: <code>list</code><br>
+Note: This function will work all kind of number but I'll suggest to use Semi prime number because This funciton returns Factor of input number except 1 and number itself.
+</p>
 </blockquote>
 <h4 class="code-line" data-line-start=173 data-line-end=174 ><a id="Fermat_Theorem_for_Factorization_173"></a>Fermat Theorem for Factorization</h4>
 <blockquote>
-<p class="has-line-data" data-line-start="174" data-line-end="177">Syntex: <code>getFactorFermatTheorem(compositeNumber)</code><br>
+<p class="has-line-data" data-line-start="174" data-line-end="177">Syntex: <code>getFactorFermatTheorem(semiPrimeNumber)</code><br>
 Return Type: <code>tuple</code><br>
 Note: This is only for composite number who have only two prime factors except number itself e.g. 33 have two prime factors 3 and 11.</p>
 </blockquote>
 <h4 class="code-line" data-line-start=178 data-line-end=179 ><a id="Pollard_Rho_for_Factorization_178"></a>Pollard Rho for Factorization</h4>
 <blockquote>
-<p class="has-line-data" data-line-start="179" data-line-end="182">Syntex: <code>getFactorPollardRho(compositeNumber)</code><br>
+<p class="has-line-data" data-line-start="179" data-line-end="182">Syntex: <code>getFactorPollardRho(semiPrimeNumber)</code><br>
 Return Type: <code>integer</code><br>
 Note: This will return any one factor of given number because this algorithem works on random numbers.</p>
+</blockquote>
+<h4 class="code-line" data-line-start=178 data-line-end=179 ><a id="Pollard_Rho_for_Factorization_178"></a>General Factorization</h4>
+<blockquote>
+<p class="has-line-data" data-line-start="179" data-line-end="182">Syntex: <code>getAllFactors(compositeNumber)</code><br>
+Return Type: <code>list</code><br>
+Note: This will return list of all prime factors.</p>
 </blockquote>
 <h2 class="code-line" data-line-start=183 data-line-end=185 ><a id="License_183"></a>License</h2>
 <p class="has-line-data" data-line-start="186" data-line-end="188">MIT<br>
@@ -234,7 +249,7 @@ Note: This will return any one factor of given number because this algorithem wo
 <p class="has-line-data" data-line-start="191" data-line-end="192">Follow me on</p>
 <div class="row" >
     <a href="https://github.com/mit1280"><img src="http://ist.mit.edu/sites/default/files/styles/news_image_node/public/news_images/github_silhouette-740x555.jpg" alt="Image of Yaktocat" width="130" height="100" style="padding: 20px" ></a>
-    <a href="https://www.linkedin.com/in/mitpatel12/"><img src="https://www.sccpre.cat/mypng/detail/25-258987_linkedin-icon-vector-png-linked-in-logo-rund.png" alt="Image of Yaktocat" width="100" height="100" style="padding: 20px"></a>
+    <a href="https://www.linkedin.com/in/mitpatel12/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Linkedin.svg/1200px-Linkedin.svg.png" alt="Image of Yaktocat" width="100" height="100" style="padding: 20px"></a>
     <a href="https://www.facebook.com/patel.mit.37"><img src="https://en.facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png" alt="Image of Yaktocat" width="100" height="100" style="padding: 20px"></a>      
     <a href="https://www.instagram.com/mit_0812/"><img src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-instagram-new-circle-512.png" alt="Image of Yaktocat" width="100" height="100" style="padding: 20px"></a>    
 </div>
