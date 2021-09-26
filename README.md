@@ -217,7 +217,7 @@ Return Type: <code>None</code></p>
 <h3 class="code-line" data-line-start=167 data-line-end=168 ><a id="Factorization_167"></a>Factorization</h3>
 </li>
 </ul>
-<p class="has-line-data" data-line-start="70" data-line-end="71">This Section is realted to  Number factorization. Use Semi-Prime where it is indicated. </p>
+<p class="has-line-data" data-line-start="70" data-line-end="71">This Section is related to  Number factorization. Use Semi-Prime where it is indicated. </p>
 <h4 class="code-line" data-line-start=169 data-line-end=170 ><a id="Traditional_Way_for_Factorization_169"></a>Traditional Way for Factorization</h4>
 <blockquote>
 <p class="has-line-data" data-line-start="170" data-line-end="172">Syntex: <code>getFactorTraditional(semiPrimeNumber)</code><br>
