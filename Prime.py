@@ -641,16 +641,19 @@ def getTruncatablePrime(startLimit,endLimit):
 #q=int(input("enter B :"))
 #print("gausian number is of form A+iB")
 def checkGaussianPrime(realPart,imaginaryPart):
-    p,q=realPart,imaginaryPart
-    x=p**2+q**2
-    f=1
-    for i in range(2,(x//2)+1):
-        if x%i==0:
-            f=0
-    if f==1:
-        print(p,"+i",q," is gaussian prime",sep="")
+    p,q = realPart,imaginaryPart
+    if (p==0 and abs(q)%4==3) or (abs(p)%4==3 and q==0):
+      f=1
     else:
-        print("number is not gaussian prime")
+      x = p**2+q**2
+      f=1
+      for i in range(2,(x//2)+1):
+          if x%i==0:
+              f=0
+    if f==1:
+        print(p," + i * ",q,": is Gaussian Prime",sep="")
+    else:
+        print("Number is not Gaussian Prime")
 #26
 def getRandomPrime(primeType,totalDigits,mode=0):
     from primelibpy import RandomFun as r
